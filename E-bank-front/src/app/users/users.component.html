@@ -1,0 +1,24 @@
+<div class="cotainer mt-2">
+  <div class="card" *ngIf="users">
+    <div class="card-header">Users</div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th> <th>ID</th> <th>ID</th> <th>ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of users">
+          <td>{{c.id_user}}</td>
+          <td>{{c.username}}</td>
+          <td>{{c.firstname}}</td>
+          <td>{{c.lastname}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
