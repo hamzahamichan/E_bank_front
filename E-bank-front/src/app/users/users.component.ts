@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-users',
@@ -11,11 +12,15 @@ export class UsersComponent implements OnInit{
   constructor(private  http:HttpClient) {
   }
   ngOnInit(): void {
-    this.http.get("http://localhost:9090/GET_All").subscribe(data=>{this.users=data;
-    },error => {
-      console.log(error);
+    this.http.get("http://localhost:9090/GET_All").subscribe({
+      next: (data) => {
+        this.users = data;
+      },
+      error: (err) => {
+        console.log(err);
       }
-    )
+    });
   }
+
 
 }
