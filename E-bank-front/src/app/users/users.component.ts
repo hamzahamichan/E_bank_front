@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {UsersService} from "../services/users.service";
 
 @Component({
   selector: 'app-users',
@@ -9,17 +10,17 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 })
 export class UsersComponent implements OnInit{
   users : any;
-  constructor(private  http:HttpClient) {
+  constructor(private usersservice:UsersService) {
   }
   ngOnInit(): void {
-    this.http.get("http://localhost:9090/GET_All").subscribe({
-      next: (data) => {
+    this.usersservice.geUsers().subscribe({
+      next:(data)=>{
         this.users = data;
       },
-      error: (err) => {
-        console.log(err);
+      error : err => {
+  console.log(err);
       }
-    });
+    })
   }
 
 
