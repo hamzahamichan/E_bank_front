@@ -1,11 +1,16 @@
 <div class="cotainer mt-2">
-  <div class="card" *ngIf="users">
+  <ng-container *ngIf="users">
+  <div *ngIf="errorMessage" class="text-danger">
+    {{errorMessage}}
+  </div >
+  <div class="card">
+
     <div class="card-header">Users</div>
     <div class="card-body">
       <table class="table">
         <thead>
         <tr>
-          <th>ID</th> <th>ID</th> <th>ID</th> <th>ID</th>
+          <th>Numero</th> <th>Email</th> <th>Prenom</th> <th>Nom</th>
         </tr>
         </thead>
         <tbody>
@@ -21,4 +26,17 @@
     </div>
 
   </div>
+  </ng-container>
+     <ng-template #failureOrloading >
+       <ng-container *ngIf="errorMessage">
+         <div class="text-danger">
+           {{errorMessage}}
+         </div>
+       </ng-container>
+       <ng-template #loading>
+         loading
+       </ng-template>
+
+     </ng-template>
+
 </div>

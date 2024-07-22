@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import { NewUsersComponent } from './new-users/new-users.component';
+import { CompteComponent } from './compte/compte.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    UsersComponent
+    UsersComponent,
+    NewUsersComponent,
+    CompteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

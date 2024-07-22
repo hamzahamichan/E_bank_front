@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {UsersService} from "../services/users.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-users',
@@ -10,6 +11,7 @@ import {UsersService} from "../services/users.service";
 })
 export class UsersComponent implements OnInit{
   users : any;
+  errorMessage ! : string;
   constructor(private usersservice:UsersService) {
   }
   ngOnInit(): void {
@@ -18,10 +20,12 @@ export class UsersComponent implements OnInit{
         this.users = data;
       },
       error : err => {
-  console.log(err);
+     this.errorMessage=err.message;
       }
-    })
+    });
+
   }
+
 
 
 }
